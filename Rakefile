@@ -9,8 +9,7 @@ end
 desc 'pry console for gem'
 task :c do
   require 'pry'
-  require 'lurker'
-  require 'lurker/cli'
+  require 'includes_many'
   ARGV.clear
   Pry.start
 end
