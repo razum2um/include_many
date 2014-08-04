@@ -4,6 +4,7 @@
 [![Build Status][BS img]][Build Status]
 
 This implements [rails/rails#16277](https://github.com/rails/rails/pull/16277) as a Gem.
+Rails 3.2 - 4.1 compatible :)
 
 ## Usage
 
