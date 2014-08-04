@@ -5,7 +5,8 @@ gemspec
 
 group :development do
   # tools
-  gem 'pry-byebug'
+  gem 'debugger', github: 'razum2um/debugger'
+  gem 'pry-debugger'
   gem 'pry-stack_explorer'
   # rspec --format fuubar
   gem 'fuubar'
