@@ -1,0 +1,9 @@
+development: &development
+  adapter: sqlite3
+  database: db/includes_many.sqlite3
+
+production:
+  <<: *development
+
+test:
+  <<: *development

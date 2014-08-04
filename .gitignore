@@ -20,3 +20,5 @@ tmp
 *.o
 *.a
 mkmf.log
+spec/internal/db/*.sqlite3
+spec/internal/log/*log
