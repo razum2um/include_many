@@ -8,7 +8,7 @@ group :development do
   gem "debugger", :github => "razum2um/debugger"
   gem "pry-debugger"
   gem "pry-stack_explorer"
-  gem "fuubar"
+  gem "fuubar", :github => "thekompanee/fuubar"
 end
 
 gemspec :path => "../"

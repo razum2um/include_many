@@ -1,7 +1,7 @@
 module IncludesMany
   module ActiveRecord
     module Associations
-      class NonScalarPrimaryKeyError < ActiveRecordError
+      class NonScalarPrimaryKeyError < ::ActiveRecord::ActiveRecordError
         def initialize(reflection)
           super("Can not join association #{reflection.name.inspect}, because :primary_key is a callable. Use Relation#includes or specify a join column name")
         end

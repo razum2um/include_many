@@ -1,5 +1,6 @@
 require 'bundler/setup'
 require 'combustion'
+require 'pry-debugger'
 
 Combustion.initialize! :active_record
 

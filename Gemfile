@@ -9,5 +9,5 @@ group :development do
   gem 'pry-debugger'
   gem 'pry-stack_explorer'
   # rspec --format fuubar
-  gem 'fuubar'
+  gem 'fuubar', github: 'thekompanee/fuubar'
 end
