@@ -39,6 +39,9 @@ Add this line to your application's Gemfile:
 ## Contributing
 
 To test under different Rails version use [`appraisal`](https://github.com/thoughtbot/appraisal)
+To experiment inside a console:
+
+    appraisal rails_3_2 rake c # etc..
 
 1. Fork it ( https://github.com/razum2um/includes_many/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
