@@ -4,7 +4,13 @@
 [![Build Status][BS img]][Build Status]
 
 This implements [rails/rails#16277](https://github.com/rails/rails/pull/16277) as a Gem.
-Rails 3.2 - 4.1 compatible :)
+Tested with Rails 3.2.19, 4.0.8, 4.1.4 :)
+
+Sad, but ActiveRecord is hard to extend :( I used monkeypatch,
+but it's protected by [`safe_monkeypatch`](https://github.com/razum2um/safe_monkeypatch)
+It will loudly complain at startup time if it's incompatible. Feel free to open an issue if such.
+
+Use it and upgrade without fear!
 
 ## Usage
 
@@ -53,8 +59,8 @@ To experiment inside a console:
 
 Thanks for [@pat](https://github.com/pat) for `combustion` and multi-rails testing practices.
 
-[Gem Version]: https://rubygems.org/gems/include_many
-[Build Status]: https://travis-ci.org/razum2um/include_many
+[Gem Version]: https://rubygems.org/gems/includes_many
+[Build Status]: https://travis-ci.org/razum2um/includes_many
 
-[GV img]: https://badge.fury.io/rb/include_many.png
-[BS img]: https://travis-ci.org/razum2um/include_many.png
+[GV img]: https://badge.fury.io/rb/includes_many.png
+[BS img]: https://travis-ci.org/razum2um/includes_many.png
