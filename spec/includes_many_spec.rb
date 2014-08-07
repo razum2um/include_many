@@ -61,8 +61,13 @@ RSpec.describe IncludesMany do
         expect(childs.map(&:self_siblings_and_children).map(&:size).flatten).to eq [5, 4, 4]
       }.to change { subscriber.log.size } .from(0).to(2)
 
-      expect(subscriber.log.first).to match Regexp.new(Regexp.escape(%q{SELECT "comments".* FROM "comments"  WHERE (body like 'child%') ORDER BY body ASC}))
-      expect(subscriber.log.last).to match Regexp.new(Regexp.escape(%q{SELECT "comments".* FROM "comments"  WHERE "comments"."parent_id" IN}))
+      expect(subscriber.log.first).to match Regexp.new( #Regexp.escape(
+        %q{SELECT "comments".* FROM "comments"\s+WHERE \(body like 'child%'\)\s+ORDER BY body ASC}
+      )
+
+      expect(subscriber.log.last).to match Regexp.new( #Regexp.escape(
+        %q{SELECT "comments".* FROM "comments"\s+WHERE "comments"."parent_id" IN}
+      )
     end
 
     it 'denies join on includes_many' do

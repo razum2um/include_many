@@ -1,7 +1,7 @@
 class Comment < ::ActiveRecord::Base
   belongs_to :parent, :class_name => 'Comment', :foreign_key => :parent_id
   has_many :children, :class_name => 'Comment', :foreign_key => :parent_id
-  has_many :siblings, :class_name => 'Comment',
+  has_many :self_siblings, :class_name => 'Comment',
      :foreign_key => :parent_id, :primary_key => :parent_id
 
   # includes_many :siblings_and_c, :class_name => 'Comment',

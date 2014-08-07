@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "activerecord", ">= 3.2", "< 4.2"
-  spec.add_dependency "safe_monkeypatch"
+  spec.add_dependency "safe_monkeypatch", "~> 0.1"
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "sqlite3"

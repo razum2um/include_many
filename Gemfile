@@ -11,3 +11,4 @@ group :development do
   # rspec --format fuubar
   gem 'fuubar', github: 'thekompanee/fuubar'
 end
+
