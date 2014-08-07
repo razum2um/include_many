@@ -21,7 +21,7 @@ class SQLCounter
 end
 
 RSpec.describe IncludesMany do
-  describe 'in rails 3.2' do
+  describe 'self_siblings_and_children' do
     let(:parent) { Comment.create! :body => 'some comment' }
     let(:child1) { Comment.create! :body => 'child1', :parent => parent }
     let(:child2) { Comment.create! :body => 'child2', :parent => parent }
