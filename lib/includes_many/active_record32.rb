@@ -1,3 +1,4 @@
-require 'includes_many/active_record32/associations/association_scope'
-require 'includes_many/active_record32/associations/preloader/association'
-require 'includes_many/active_record32/associations/join_dependency/join_association'
+require 'includes_many/active_record32/association_scope'
+require 'includes_many/active_record32/has_many'
+require 'includes_many/active_record32/join_association'
+
