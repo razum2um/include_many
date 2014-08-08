@@ -8,9 +8,10 @@ module ActiveRecord
   module Associations
     class JoinDependency
       class JoinAssociation
-        safe_monkeypatch :initialize, md5: '2332c88140aa9e9efa96975fd48e6958'
+        safe_monkeypatch :initialize, md5: 'b1b62d42c897ef2e2c4db921a97bad5b'
 
-        def initialize(reflection, children)
+        def initialize(reflection, join_dependency, parent = nil)
+          reflection.check_validity!
 
           # PATCH here
           if reflection.options[:primary_key].respond_to?(:call)
@@ -18,10 +19,14 @@ module ActiveRecord
           end
           # end PATCH
 
-          super(reflection.klass, children)
+          super(reflection.klass)
 
           @reflection      = reflection
-          @tables          = nil
+          @join_dependency = join_dependency
+          @parent          = parent
+          @join_type       = Arel::InnerJoin
+          @aliased_prefix  = "t#{ join_dependency.join_parts.size }"
+          @tables          = construct_tables.reverse
         end
       end
     end

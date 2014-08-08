@@ -1,4 +1,4 @@
-require 'includes_many/active_record41/association_scope'
-require 'includes_many/active_record41/has_many'
-require 'includes_many/active_record41/join_association'
+require 'includes_many/active_record40/association_scope'
+require 'includes_many/active_record40/has_many'
+require 'includes_many/active_record40/join_association'
 

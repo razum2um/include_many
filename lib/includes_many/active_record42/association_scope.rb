@@ -1,7 +1,7 @@
 module ActiveRecord
   module Associations
     class AssociationScope
-      safe_monkeypatch :add_constraints, md5: '191225b52dbc5ff8fd658b76a9b9b840'
+      safe_monkeypatch :add_constraints, md5: '191225b52dbc5ff8fd658b76a9b9b840', error: 'fails on Fri Aug 8 16:10:06 2014 +0200 f4c8ce9'
 
       def add_constraints(scope, owner, assoc_klass, refl, tracker)
         chain = refl.chain
@@ -21,11 +21,13 @@ module ActiveRecord
               fk = foreign_key.call(owner)
               if fk.respond_to?(:each)
                 bind_vals = fk.compact.map do |f|
+                  # binding.pry
                   bind scope, table.table_name, key.to_s, f, tracker
                 end
                 table[key].in(bind_vals)
               else
-                table[key].eq(fk)
+                bind_val = bind scope, table.table_name, key.to_s, fk, tracker
+                table[key].eq(bind_val)
               end
             else
               bind_val = bind scope, table.table_name, key.to_s, owner[foreign_key], tracker

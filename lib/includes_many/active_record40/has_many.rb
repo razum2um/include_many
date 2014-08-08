@@ -2,7 +2,7 @@ module ActiveRecord
   module Associations
     class Preloader
       class HasMany
-        safe_monkeypatch :owners_by_key, md5: '70b0628dd3c79928ee0bcff75052894a'
+        safe_monkeypatch :owners_by_key, md5: '33eab3037fd994d4a7106a68a05f169d'
 
         def owners_by_key
           @owners_by_key ||= begin
@@ -16,12 +16,10 @@ module ActiveRecord
 
               if key.respond_to?(:each)
                 key.each do |k|
-                  k = k.to_s if key_conversion_required?
-                  res[k] << owner
+                  res[k && k.to_s] << owner
                 end
               else
-                key = key.to_s if key_conversion_required?
-                res[key] << owner
+                res[key && key.to_s] << owner
               end
             end
             res

@@ -42,10 +42,11 @@ RSpec.describe IncludesMany do
       ActiveSupport::Notifications.subscribe('sql.active_record', subscriber)
     end
 
-    it 'works' do
-      expect(child1.self_siblings_and_children.map(&:body).sort).to eq ["child1", "child2", "child3", "subchild11", "subchild12"]
-      expect(child2.self_siblings_and_children.map(&:body).sort).to eq ["child1", "child2", "child3", "subchild21"]
-      expect(child3.self_siblings_and_children.map(&:body).sort).to eq ["child1", "child2", "child3", "subchild31"]
+    it 'works', :focus do
+      x = child1.self_siblings_and_children.to_a
+      expect(x.map(&:body).sort).to eq ["child1", "child2", "child3", "subchild11", "subchild12"]
+      # expect(child2.self_siblings_and_children.map(&:body).sort).to eq ["child1", "child2", "child3", "subchild21"]
+      # expect(child3.self_siblings_and_children.map(&:body).sort).to eq ["child1", "child2", "child3", "subchild31"]
     end
 
     it 'executes N+1 if not used includes' do
