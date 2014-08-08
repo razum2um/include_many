@@ -32,7 +32,6 @@ module ActiveRecord
                 bind_vals = fk.compact.map do |f|
                   bind scope, table.table_name, key.to_s, f, tracker
                 end
-                binding.pry
                 table[key].in(bind_vals)
               else
                 table[key].eq(fk)

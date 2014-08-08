@@ -21,7 +21,6 @@ module ActiveRecord
               fk = foreign_key.call(owner)
               if fk.respond_to?(:each)
                 bind_vals = fk.compact.map do |f|
-                  # binding.pry
                   bind scope, table.table_name, key.to_s, f, tracker
                 end
                 table[key].in(bind_vals)
