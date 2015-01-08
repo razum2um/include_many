@@ -47,6 +47,7 @@ module ActiveRecord
                 table[key].eq(bind_val)
               end
             else
+              value    = owner.class.base_class.name
               bind_val = bind scope, table.table_name, reflection.type.to_s, value
               table[reflection.type].eq(bind_val)
             end
